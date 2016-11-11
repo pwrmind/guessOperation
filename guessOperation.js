@@ -14,13 +14,18 @@ function guessOperation(inputValue, outputValue) {
     for(var i = 0; i < _outputValue.length; i++) {
         for(var j = 0; j < _inputValue.length; j++) {
             for(var k = 0; k < _inputValue.length; k++) {
+                if(j === k)
+                    continue;
                 if(_inputValue[i][j] + _inputValue[i][k] === _outputValue[i]) {
                     _addition++;
-                } else if(_inputValue[i][j] - _inputValue[i][k] === _outputValue[i]) {
+                }
+                if(_inputValue[i][j] - _inputValue[i][k] === _outputValue[i]) {
                     _subtraction++;
-                } else if(_inputValue[i][j] * _inputValue[i][k] === _outputValue[i]) {
+                }
+                if(_inputValue[i][j] * _inputValue[i][k] === _outputValue[i]) {
                     _multiplication++;
-                } else if(_inputValue[i][j] / _inputValue[i][k] === _outputValue[i]) {
+                }
+                if(_inputValue[i][j] / _inputValue[i][k] === _outputValue[i]) {
                     _division++;
                 }
             }
@@ -34,22 +39,18 @@ function guessOperation(inputValue, outputValue) {
             return function(x, y) {
                 return x + y;
             };
-            break;
         case 1:
             return function(x, y) {
                 return x - y;
             };
-            break;
         case 2:
             return function(x, y) {
                 return x * y;
             };
-            break;
         case 3:
             return function(x, y) {
                 return x / y;
             };
-            break;
         default:
             return 0;
     }
