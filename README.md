@@ -19,3 +19,9 @@ If the operation is not known, but the available input and output data for train
 **call**: guessOperation([[1,1],[1,2],[2,3],[3,5]],[2,3,5,8])(5,guessOperation([[1,1],[2,2],[3,3],[5,5]],[1,4,9,25])(2,4))
 
 **return**: 13
+
+###Return the value of the number 2 to be the power of 4:
+
+**call**: guessOperation([[2,2],[2,3]],[4,8])(2,4)
+
+**return**: 16

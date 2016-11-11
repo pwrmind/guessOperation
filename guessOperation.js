@@ -3,6 +3,7 @@ function guessOperation(inputValue, outputValue) {
     var _division = 0; // a÷b
     var _addition = 0; // a+b
     var _subtraction = 0; // a−b
+    var _power = 0; // a^b
     var _resultValue = [];
     var _resultValueToString = ["Addition", "Subtraction", "Multiplication", "Division"];
 
@@ -28,11 +29,14 @@ function guessOperation(inputValue, outputValue) {
                 if(_inputValue[i][j] / _inputValue[i][k] === _outputValue[i]) {
                     _division++;
                 }
+                if(Math.pow(_inputValue[i][j],_inputValue[i][k]) === _outputValue[i]) {
+                    _power++;
+                }
             }
         }
     }
 
-    _resultValue = [_addition, _subtraction, _multiplication, _division];
+    _resultValue = [_addition, _subtraction, _multiplication, _division, _power];
 
     switch(_resultValue.indexOf(Math.max.apply(null, _resultValue))) {
         case 0:
@@ -51,6 +55,10 @@ function guessOperation(inputValue, outputValue) {
             return function(x, y) {
                 return x / y;
             };
+        case 4:
+            return function(x, y) {
+                return Math.pow(x, y);
+            };    
         default:
             return 0;
     }
