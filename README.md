@@ -1,4 +1,6 @@
 #Operator math guess
+###Trainable function for computing
+If the operation is not known, but the available input and output data for training
 
 ###Operation (addition): 5 + 8
 
